@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
     def show
         @current_post = Post.find(params[:id])
+        total_views = @current_post[:views] + 1
+        @current_post.update(views: total_views)
     end
 
     def new
