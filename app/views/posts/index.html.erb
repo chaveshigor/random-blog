@@ -3,6 +3,7 @@
         <div>
             <h1><%= p.title %></h1>
             <h2><%= p.description %></h2>
+            <p>By: <%= p.user.first_name %></p>
             <p>Postado em: <%= p.created_at %></p>
             <p>Visualizações: <%= p.views %></p>
         </div>
