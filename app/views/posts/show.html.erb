@@ -4,3 +4,25 @@
     <h2><%= @current_post.description %></h2>
     <p><%= @current_post.body %></p>
 </div>
+
+<div>
+    <h3>Comentarios:</h3>
+    <% @current_post.comments.each do |p| %>
+        <p><%= p.commenter_name %></p>
+        <p><%= p.body %></p>
+    <%end%>
+    
+    <h3>Comente:</h3>
+    <%= form_with model:[@current_post, @current_post.comments.build] do |f|%>
+        <div class="field">
+            <%= f.label :commenter_name %>
+            <%= f.text_field :commenter_name, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :body %>
+            <%= f.text_field :body, autofocus: true %>
+        </div>
+        <%= f.submit "Comentar" %>
+    <%end%>
+</div>
